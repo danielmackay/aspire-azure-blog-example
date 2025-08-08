@@ -2,7 +2,7 @@
 
 ## 🤔 What is it?
 
-Sample repo for the Dan Does Code Blog Post (TODO: Add link)
+Sample repo for the [Dan Does Code blog post](https://www.dandoescode.com/blog/deploying-dotnet-aspire-to-azure-app-service)
 
 ## 🎉 Getting Started
 
