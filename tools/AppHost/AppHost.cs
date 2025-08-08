@@ -1,4 +1,3 @@
-using AppHost.Commands;
 using Azure.Provisioning;
 using Azure.Provisioning.AppService;
 using Projects;
@@ -30,7 +29,7 @@ var sqlServer = builder
 
 var db = sqlServer
     .AddDatabase("CleanArchitecture", "clean-architecture");
-// .WithDropDatabaseCommand();
+    //.WithDropDatabaseCommand();
 
 
 var migrationService = builder.AddProject<MigrationService>("migrations")
@@ -53,7 +52,7 @@ var migrationService = builder.AddProject<MigrationService>("migrations")
 var api = builder
     .AddProject<WebApi>("api")
     .WithExternalHttpEndpoints()
-    .PublishAsAzureAppServiceWebsite((infra, site) => { })
+    // No need to use builder.PublishAsAzureAppServiceWebsite() here, as that is the default due to builder.AddAzureAppServiceEnvironment()
     .WithReference(db)
     .WaitForCompletion(migrationService);
 // 👆 Changed
